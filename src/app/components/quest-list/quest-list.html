@@ -1,0 +1,19 @@
+<div class="quests-grid">
+      <!-- Ciclo sulla lista di missioni fornita dal servizio -->
+      @for (q of questService.list(); track q.id) {
+        <app-quest-card 
+          [data]="q" 
+          [mode]="mode()" 
+          (onComplete)="questService.completeQuest($event)">
+        </app-quest-card>
+      } @empty {
+        <!-- Stato visualizzato se l'array delle missioni è vuoto -->
+        <div class="empty-state">
+          <div class="icon">🔍</div>
+          <p>Nessun contratto disponibile in questa regione.</p>
+          @if (mode() === 'GIVER') {
+            <small>Usa il modulo sopra per pubblicare la prima sfida!</small>
+          }
+        </div>
+      }
+    </div>

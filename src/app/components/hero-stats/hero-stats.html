@@ -1,0 +1,58 @@
+<div class="stats-container">
+      <!-- Sezione Superiore: Info Livello e XP -->
+      <div class="main-hud">
+        <div class="level-box">
+          <span class="label">RANGO</span>
+          <span class="value">{{ hero.state().level }}</span>
+        </div>
+
+        <div class="xp-bar-wrapper">
+          <div class="xp-labels">
+            <span class="xp-text">XP: {{ hero.state().currentXp }} / {{ hero.state().xpToNextLevel }}</span>
+            <span class="percent">{{ hero.xpPercentage() | number:'1.0-0' }}%</span>
+          </div>
+          <div class="progress-bg">
+            <div class="progress-fill" [style.width.%]="hero.xpPercentage()">
+              <div class="glow"></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- CONTATORE MISSIONI (Dinamico per Ruolo) -->
+        <div class="quest-counter">
+          <span class="label">
+            {{ userRole() === 'GIVER' ? 'MISSIONI CREATE' : 'MISSIONI COMPIUTE' }}
+          </span>
+          <span class="count-value">{{ hero.state().questsDone }}</span>
+        </div>
+      </div>
+
+      <!-- Sezione Inferiore: Trofei e Attività Recenti -->
+      <div class="sub-stats">
+        <div class="trophy-section">
+          <span class="section-title">TROFEI OTTENUTI</span>
+          <div class="trophy-list">
+            @for (t of hero.state().trophies; track t) {
+              <span class="trophy-badge" [title]="t">{{t}}</span>
+            } @empty {
+              <span class="no-data">Nessun trofeo ancora...</span>
+            }
+          </div>
+        </div>
+
+        <div class="activity-section">
+          <span class="section-title">ULTIME GESTA</span>
+          <div class="activity-log">
+            @for (act of hero.state().recentActivity; track act; let i = $index) {
+              @if (i < 3) {
+                <div class="log-item">
+                  <span class="dot"></span> {{ act }}
+                </div>
+              }
+            } @empty {
+              <div class="log-item empty">In attesa di nuove avventure...</div>
+            }
+          </div>
+        </div>
+      </div>
+    </div>

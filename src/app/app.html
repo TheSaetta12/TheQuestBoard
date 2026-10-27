@@ -1,0 +1,36 @@
+<main class="app-container">
+      <!-- Overlay di Level Up gestito dal servizio Ui -->
+      <app-level-up-dialog></app-level-up-dialog>
+
+      <!-- Inseriamo la dialog di reset -->
+      <app-reset-dialog (onConfirm)="fullReset()"></app-reset-dialog>
+
+      @if (!userRole()) {
+        <!-- Schermata di selezione ruolo -->
+        <app-login (onLogin)="handleLogin($event)"></app-login>
+      } @else {
+        
+        <!-- Header con XP e contatori -->
+        <app-hero-stats [userRole]="userRole()"></app-hero-stats>
+
+        <div class="game-layout">
+          
+          <!-- Sidebar con profilo e tasto logout -->
+          <aside class="sidebar">
+            <app-hero-profile></app-hero-profile>
+            
+            <div class="nav-actions">
+                <button class="logout-btn" (click)="logout()">🚪 Cambia Ruolo</button>
+                <!-- Ora questo tasto apre solo la modale -->
+                <button class="reset-danger-btn" (click)="ui.openResetConfirm()">⚠️ Reset Totale</button>
+            </div>
+          </aside>
+
+          <!-- La QuestBoard si occupa di mostrare QuestForm e QuestList -->
+          <section class="main-content">
+            <app-quest-board [mode]="userRole()!"></app-quest-board>
+          </section>
+
+        </div>
+      }
+    </main>

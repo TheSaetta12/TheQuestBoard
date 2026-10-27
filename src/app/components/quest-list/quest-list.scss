@@ -1,0 +1,21 @@
+.quests-grid {
+      display: grid;
+      /* Griglia fluida che si adatta alla larghezza dello schermo */
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 25px;
+      padding-top: 10px;
+    }
+
+    .empty-state {
+      grid-column: 1 / -1;
+      text-align: center;
+      padding: 60px 20px;
+      background: rgba(255, 255, 255, 0.02);
+      border: 2px dashed #222;
+      border-radius: 20px;
+      color: #555;
+
+      .icon { font-size: 3rem; margin-bottom: 15px; opacity: 0.3; }
+      p { font-size: 1.1rem; margin: 0; }
+      small { color: #333; display: block; margin-top: 10px; text-transform: uppercase; letter-spacing: 1px; }
+    }

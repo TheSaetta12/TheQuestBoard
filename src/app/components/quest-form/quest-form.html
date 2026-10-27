@@ -1,0 +1,41 @@
+<form class="quest-form" (submit)="onCreateQuest($event)">
+      <div class="form-grid">
+        <!-- Titolo Missione -->
+        <div class="input-group">
+          <input 
+            name="title" 
+            [(ngModel)]="formData().title" 
+            placeholder="Titolo della sfida..." 
+            required>
+        </div>
+
+        <!-- Difficoltà -->
+        <div class="input-group">
+          <select name="difficulty" [(ngModel)]="formData().difficulty">
+            <option value="EASY">EASY</option>
+            <option value="NORMAL">NORMAL</option>
+            <option value="HARD">HARD</option>
+            <option value="BOSS">BOSS</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- Descrizione -->
+      <div class="input-group">
+        <textarea 
+          name="description" 
+          [(ngModel)]="formData().description" 
+          placeholder="Dettagli della missione (requisiti, obiettivi...)"
+          rows="3">
+        </textarea>
+      </div>
+
+      <div class="form-footer">
+        <div class="reward-preview">
+          Premio Stimato: <span>{{ calculateXp() }} XP</span>
+        </div>
+        <button type="submit" [disabled]="!formData().title" class="submit-btn">
+          PUBBLICA MISSIONE
+        </button>
+      </div>
+    </form>

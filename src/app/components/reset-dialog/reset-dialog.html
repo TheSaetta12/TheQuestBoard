@@ -1,0 +1,14 @@
+@if (ui.isResetDialogOpen()) {
+      <div class="modal-overlay">
+        <div class="modal-card">
+          <div class="warning-icon">⚠️</div>
+          <h2>AZIONE IRREVERSIBILE</h2>
+          <p>Sei sicuro? Perderai tutti i progressi, il livello e le missioni create nella bacheca.</p>
+          
+          <div class="actions">
+            <button class="btn-cancel" (click)="ui.closeResetConfirm()">ANNULLA</button>
+            <button class="btn-confirm" (click)="onConfirm.emit()">RESETTA TUTTO</button>
+          </div>
+        </div>
+      </div>
+    }

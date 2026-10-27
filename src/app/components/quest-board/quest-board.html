@@ -1,0 +1,41 @@
+<div class="board-container">
+      
+      <!-- Intestazione della Bacheca -->
+      <header class="board-header">
+        <div class="text-content">
+          <h2 class="title">
+            {{ mode() === 'GIVER' ? 'BACHECA INCARICHI' : 'BACHECA INCARICHI' }}
+          </h2>
+          <p class="subtitle">
+            {{ mode() === 'GIVER' 
+               ? 'Crea nuovi contratti per gli avventurieri della gilda.' 
+               : 'Scegli la tua prossima sfida e guadagna ricompense in XP.' }}
+          </p>
+        </div>
+
+        <div class="status-indicator" [class.is-giver]="mode() === 'GIVER'">
+          <span class="pulse"></span>
+          {{ mode() === 'GIVER' ? 'RUOLO CREATORE' : 'RUOLO AVVENTURIERO' }}
+        </div>
+      </header>
+
+      <!-- Zona Form: Visibile solo se l'utente è un GIVER -->
+      @if (mode() === 'GIVER') {
+        <section class="creation-area">
+          <h3 class="area-label">📜 Redigi Nuovo Contratto</h3>
+          <app-quest-form></app-quest-form>
+        </section>
+      }
+
+      <!-- Zona Lista: Visibile a tutti -->
+      <section class="list-area">
+        <div class="area-header">
+          <span class="label">Contratti</span>
+          <div class="divider"></div>
+        </div>
+        
+        <!-- Passiamo il ruolo alla lista per gestire i permessi delle card -->
+        <app-quest-list [mode]="mode()"></app-quest-list>
+      </section>
+
+    </div>

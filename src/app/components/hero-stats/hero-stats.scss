@@ -1,0 +1,97 @@
+.stats-container {
+      background: #111116;
+      border-bottom: 2px solid #333;
+      padding: 15px 30px;
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+
+    .main-hud {
+      display: flex;
+      align-items: center;
+      gap: 25px;
+    }
+
+    .level-box, .quest-counter {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      background: linear-gradient(145deg, #1e1e26, #14141b);
+      border: 1px solid #333;
+      padding: 5px 15px;
+      border-radius: 8px;
+      min-width: 100px;
+    }
+
+    .level-box { border-color: #ffd700; }
+    .quest-counter { border-color: #00d4ff; }
+
+    .label { font-size: 0.6rem; color: #888; font-weight: bold; text-transform: uppercase; text-align: center; }
+    .level-box .label { color: #ffd700; }
+    .quest-counter .label { color: #00d4ff; }
+
+    .value, .count-value { 
+      font-size: 1.5rem; 
+      color: #fff; 
+      font-family: 'Orbitron', sans-serif; 
+    }
+
+    .xp-bar-wrapper { flex-grow: 1; }
+
+    .progress-bg {
+      height: 12px;
+      background: #222;
+      border-radius: 6px;
+      overflow: hidden;
+      border: 1px solid #333;
+    }
+
+    .progress-fill {
+      height: 100%;
+      background: linear-gradient(90deg, #00d4ff, #00ff87);
+      transition: width 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+      position: relative;
+      .glow {
+        position: absolute; top: 0; right: 0; width: 10px; height: 100%;
+        box-shadow: 0 0 10px #00ff87;
+      }
+    }
+
+    .sub-stats {
+      display: flex;
+      justify-content: space-between;
+      gap: 40px;
+      border-top: 1px solid #222;
+      padding-top: 10px;
+    }
+
+    .section-title {
+      font-size: 0.65rem;
+      color: #555;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      display: block;
+      margin-bottom: 5px;
+    }
+
+    .trophy-list { display: flex; gap: 8px; }
+    .activity-log .log-item {
+      font-size: 0.8rem;
+      color: #aaa;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      .dot { width: 4px; height: 4px; background: #00d4ff; border-radius: 50%; }
+    }
+
+    .xp-labels {
+      display: flex;
+      gap: 15px;
+    }
+
+    @media (max-width: 900px) {
+      .main-hud { flex-wrap: wrap; }
+      .quest-counter { order: 3; width: 100%; }
+      .sub-stats { flex-direction: column; gap: 15px; }
+    }

@@ -1,0 +1,34 @@
+<div class="login-overlay">
+      <div class="login-card">
+        <header>
+          <h1>BENVENUTO NELLA GILDA</h1>
+          <p>Scegli il tuo ruolo per iniziare l'avventura</p>
+        </header>
+
+        <div class="roles-grid">
+          <!-- Ruolo: Giocatore -->
+          <div class="role-option player" (click)="selectRole('PLAYER')">
+            <div class="icon-circle">
+              <img src="https://api.dicebear.com/7.x/pixel-art/svg?seed=Felix" alt="Player">
+            </div>
+            <h3>AVVENTURIERO</h3>
+            <p>Completa le quest e scala la classifica</p>
+            <span class="action-hint">ENTRA COME EROE</span>
+          </div>
+
+          <!-- Ruolo: Quest Giver -->
+          <div class="role-option giver" (click)="selectRole('GIVER')">
+            <div class="icon-circle">
+              <img src="https://api.dicebear.com/7.x/pixel-art/svg?seed=King" alt="Giver">
+            </div>
+            <h3>QUEST GIVER</h3>
+            <p>Crea missioni per gli avventurieri</p>
+            <span class="action-hint">PUBBLICA SFIDE</span>
+          </div>
+        </div>
+        
+        <footer class="login-footer">
+          <p>Questboard v1.0 - All rights reserved</p>
+        </footer>
+      </div>
+    </div>

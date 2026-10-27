@@ -1,0 +1,43 @@
+<div class="profile-card">
+      <!-- Pulsante Edit/Annulla -->
+      <button class="edit-btn" (click)="toggleEdit()">
+        {{ isEditing() ? '✕' : '⚙️' }}
+      </button>
+
+      <!-- Frame dell'Avatar con gestione Fallback -->
+      <div class="avatar-wrapper">
+        <img [src]="displayAvatar()" alt="Avatar">
+        <div class="level-badge">{{ hero.state().level }}</div>
+      </div>
+
+      @if (!isEditing()) {
+        <!-- VISTA PROFILO -->
+        <div class="info-container">
+          <h2 class="hero-name">{{ hero.state().name }}</h2>
+          <p class="hero-bio">{{ hero.state().description }}</p>
+          <div class="meta-info">
+            <span>⚔️ {{ hero.state().questsDone }} Quest</span>
+          </div>
+        </div>
+      } @else {
+        <!-- FORM DI MODIFICA -->
+        <div class="edit-form">
+          <div class="field">
+            <label>Nickname</label>
+            <input [(ngModel)]="tempName" type="text" placeholder="Es: Arthas">
+          </div>
+
+          <div class="field">
+            <label>URL Immagine (Avatar)</label>
+            <input [(ngModel)]="tempAvatar" type="text" placeholder="https://link-immagine.png">
+          </div>
+
+          <div class="field">
+            <label>Biografia</label>
+            <textarea [(ngModel)]="tempBio" placeholder="Scrivi la tua leggenda..."></textarea>
+          </div>
+
+          <button class="save-button" (click)="save()">SALVA MODIFICHE</button>
+        </div>
+      }
+    </div>

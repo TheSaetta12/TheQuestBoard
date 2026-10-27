@@ -1,0 +1,66 @@
+.app-container {
+  min-height: 100vh;
+  background: #0b0b0d;
+  color: #fff;
+}
+
+.game-layout {
+  display: grid;
+  grid-template-columns: 350px 1fr;
+  gap: 30px;
+  padding: 30px;
+  max-width: 1500px;
+  margin: 0 auto;
+}
+
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.logout-btn {
+  background: rgba(255, 77, 77, 0.1);
+  border: 1px solid #ff4d4d;
+  color: #ff4d4d;
+  padding: 12px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+  width: 100%;
+
+  &:hover {
+    background: #ff4d4d;
+    color: #000;
+  }
+}
+
+.reset-danger-btn {
+  background: transparent;
+  border: 1px dashed #ff4d4d;
+  color: #ff4d4d;
+  padding: 10px;
+  border-radius: 8px;
+  font-size: 0.75rem;
+  cursor: pointer;
+  opacity: 0.6;
+  transition: 0.3s;
+  width: 100%;
+
+  &:hover {
+    opacity: 1;
+    background: rgba(255, 77, 77, 0.1);
+    border-style: solid;
+  }
+}
+
+.nav-actions {
+  display: flex;
+  gap: 5px;
+}
+
+@media (max-width: 1024px) {
+  .game-layout {
+    grid-template-columns: 1fr;
+  }
+}

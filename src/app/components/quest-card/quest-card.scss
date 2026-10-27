@@ -1,0 +1,113 @@
+:host { display: block; max-height: 80%; }
+
+    .card {
+      background: #16161a;
+      border: 1px solid #2a2a2e;
+      border-radius: 16px;
+      padding: 24px;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      position: relative;
+      overflow: hidden;
+
+      &:hover:not(.is-completed) {
+        border-color: #00d4ff;
+        transform: translateY(-5px);
+        box-shadow: 0 10px 30px rgba(0, 212, 255, 0.15);
+      }
+
+      &.is-completed {
+        opacity: 0.6;
+        border-color: #00ff87;
+        background: linear-gradient(145deg, #16161a, #0f1a14);
+      }
+    }
+
+    /* Badge Difficoltà */
+    .card-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .difficulty-tag {
+      font-size: 0.65rem;
+      font-weight: 800;
+      padding: 4px 10px;
+      border-radius: 6px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      
+      &[data-diff="EASY"] { background: #51cf66; color: #000; }
+      &[data-diff="NORMAL"] { background: #fcc419; color: #000; }
+      &[data-diff="HARD"] { background: #ff922b; color: #fff; }
+      &[data-diff="BOSS"] { 
+        background: #ff4d4d; color: #fff; 
+        box-shadow: 0 0 10px rgba(255, 77, 77, 0.5); 
+      }
+    }
+
+    .xp-reward {
+      font-family: 'Orbitron', sans-serif;
+      color: #00ff87;
+      font-weight: bold;
+      font-size: 0.9rem;
+    }
+
+    /* Testi */
+    .title { color: #fff; margin: 0; font-size: 1.2rem; line-height: 1.2; }
+    .description { color: #888; font-size: 0.85rem; line-height: 1.5; margin: 0; flex-grow: 1; }
+
+    /* Footer & Bottoni */
+    .card-footer { border-top: 1px solid #2a2a2e; padding-top: 16px; }
+
+    .action-btn {
+      width: 100%;
+      padding: 12px;
+      border: none;
+      border-radius: 8px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: 0.2s;
+      font-family: 'Orbitron', sans-serif;
+      font-size: 0.8rem;
+      
+      &.accept {
+        background: #00d4ff;
+        color: #000;
+        &:hover { background: #00ff87; transform: scale(1.02); }
+      }
+    }
+
+    .status-msg {
+      text-align: center; font-weight: bold; font-size: 0.9rem;
+      &.success { color: #00ff87; }
+    }
+
+    .giver-info {
+      display: flex; justify-content: space-between; font-size: 0.75rem;
+      .status-label { color: #555; }
+      .status-value { 
+        color: #fcc419; font-weight: bold; 
+        &.done { color: #00ff87; }
+      }
+    }
+
+    /* Sigillo per completate */
+    .seal {
+      position: absolute;
+      top: 50%; left: 50%;
+      transform: translate(-50%, -50%) rotate(-15deg);
+      border: 3px solid #00ff87;
+      color: #00ff87;
+      padding: 5px 15px;
+      font-weight: 900;
+      font-size: 1.5rem;
+      border-radius: 8px;
+      opacity: 0.4;
+      pointer-events: none;
+      font-family: 'Orbitron', sans-serif;
+    }

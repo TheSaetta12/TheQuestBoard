@@ -1,0 +1,40 @@
+<div class="card" [class.is-completed]="data().completed">
+      
+      <!-- Testata: Difficoltà e XP -->
+      <div class="card-header">
+        <span class="difficulty-tag" [attr.data-diff]="data().difficulty">
+          {{ data().difficulty }}
+        </span>
+        <span class="xp-reward">+{{ data().xpReward }} XP</span>
+      </div>
+
+      <!-- Corpo: Titolo e Descrizione -->
+      <div class="card-body">
+        <h3 class="title">{{ data().title }}</h3>
+        <p class="description">{{ data().description }}</p>
+      </div>
+
+      <!-- Footer: Azioni dinamiche in base al ruolo -->
+      <div class="card-footer">
+        @if (mode() === 'PLAYER') {
+          @if (!data().completed) {
+            <button class="action-btn accept" (click)="onComplete.emit(data().id)">
+              COMPLETA INCARICO
+            </button>
+          } 
+        } @else {
+          <!-- Vista per il Giver -->
+          <div class="giver-info">
+            <span class="status-label">STATO:</span>
+            <span class="status-value" [class.done]="data().completed">
+              {{ data().completed ? 'COMPLETATO' : 'IN ATTESA' }}
+            </span>
+          </div>
+        }
+      </div>
+
+      <!-- Effetto decorativo per card completate -->
+      @if (data().completed) {
+        <div class="seal">COMPLETATO</div>
+      }
+    </div>

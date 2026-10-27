@@ -1,0 +1,93 @@
+.board-container {
+      display: flex;
+      flex-direction: column;
+      gap: 35px;
+      animation: fadeInBoard 0.6s ease-out;
+    }
+
+    /* Header Styles */
+    .board-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      border-bottom: 1px solid #222;
+      padding-bottom: 25px;
+    }
+
+    .title {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 1.8rem;
+      color: #fff;
+      margin: 0;
+      letter-spacing: 2px;
+    }
+
+    .subtitle { color: #666; margin-top: 8px; font-size: 0.95rem; }
+
+    /* Status Indicator */
+    .status-indicator {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 0.7rem;
+      font-weight: bold;
+      padding: 6px 15px;
+      border-radius: 20px;
+      background: rgba(0, 212, 255, 0.1);
+      color: #00d4ff;
+      border: 1px solid rgba(0, 212, 255, 0.3);
+
+      &.is-giver {
+        background: rgba(255, 146, 43, 0.1);
+        color: #ff922b;
+        border-color: rgba(255, 146, 43, 0.3);
+      }
+
+      .pulse {
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background: currentColor;
+        box-shadow: 0 0 10px currentColor;
+        animation: pulseEffect 2s infinite;
+      }
+    }
+
+    /* Areas Layout */
+    .creation-area {
+      background: #111;
+      padding: 25px;
+      border-radius: 16px;
+      border: 1px solid #222;
+      .area-label { font-size: 0.9rem; color: #aaa; margin-bottom: 20px; text-transform: uppercase; }
+    }
+
+    .list-area {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .area-header {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      .label { font-size: 0.8rem; color: #444; font-weight: bold; text-transform: uppercase; }
+      .divider { flex-grow: 1; height: 1px; background: #222; }
+    }
+
+    /* Animations */
+    @keyframes fadeInBoard {
+      from { opacity: 0; transform: translateY(15px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes pulseEffect {
+      0% { transform: scale(0.9); opacity: 0.7; }
+      50% { transform: scale(1.1); opacity: 1; }
+      100% { transform: scale(0.9); opacity: 0.7; }
+    }
+
+    @media (max-width: 768px) {
+      .board-header { flex-direction: column; gap: 20px; }
+    }

@@ -1,0 +1,76 @@
+.modal-overlay {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100vw; height: 100vh;
+      background: rgba(0, 0, 0, 0.85);
+      backdrop-filter: blur(8px);
+      z-index: 9999;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      animation: fadeIn 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .modal-content {
+      background: linear-gradient(145deg, #1a1a2e, #16213e);
+      border: 2px solid #ffd700;
+      border-radius: 24px;
+      padding: 40px;
+      width: 90%;
+      max-width: 450px;
+      text-align: center;
+      box-shadow: 0 0 50px rgba(255, 215, 0, 0.2), inset 0 0 20px rgba(255, 215, 0, 0.1);
+      position: relative;
+      animation: scaleUp 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+
+    .level-badge {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 0.8rem;
+      color: #000;
+      background: #ffd700;
+      padding: 4px 12px;
+      border-radius: 4px;
+      display: inline-block;
+      margin-bottom: 10px;
+      box-shadow: 0 0 15px #ffd700;
+    }
+
+    .congrats-title {
+      font-family: 'Orbitron', sans-serif;
+      color: #fff;
+      font-size: 1.4rem;
+      margin: 15px 0;
+      letter-spacing: 1px;
+    }
+
+    .hero-info {
+      margin: 25px 0;
+      .hero-name { color: #00d4ff; font-size: 1.2rem; display: block; margin-bottom: 5px; }
+      .level-number { 
+        font-size: 5rem; 
+        font-weight: 900; 
+        color: #ffd700; 
+        line-height: 1;
+        text-shadow: 0 0 30px rgba(255, 215, 0, 0.5);
+      }
+    }
+
+    .flavor-text { color: #aaa; font-size: 0.9rem; line-height: 1.5; margin-bottom: 30px; }
+
+    .confirm-btn {
+      width: 100%;
+      background: #ffd700;
+      color: #000;
+      border: none;
+      padding: 15px;
+      border-radius: 12px;
+      font-weight: bold;
+      font-family: 'Orbitron', sans-serif;
+      cursor: pointer;
+      transition: 0.3s;
+      &:hover { transform: scale(1.05); box-shadow: 0 0 20px #ffd700; }
+    }
+
+    @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+    @keyframes scaleUp { from { transform: scale(0.8); opacity: 0; } to { transform: scale(1); opacity: 1; } }

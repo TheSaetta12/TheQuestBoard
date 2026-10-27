@@ -1,0 +1,27 @@
+<!-- Mostriamo il dialog solo se il segnale isLevelUpOpen è true -->
+    @if (ui.isLevelUpOpen()) {
+      <div class="modal-overlay" (click)="ui.closeLevelUp()">
+        <div class="modal-content" (click)="$event.stopPropagation()">
+          
+          <div class="vfx-container">
+            <div class="sparkles">✨ ✨ ✨</div>
+            <div class="level-badge">LVL UP</div>
+          </div>
+
+          <h1 class="congrats-title">NUOVO RANGO RAGGIUNTO!</h1>
+          
+          <div class="hero-info">
+            <span class="hero-name">{{ ui.levelUpData().name }}</span>
+            <div class="level-number">{{ ui.levelUpData().level }}</div>
+          </div>
+
+          <p class="flavor-text">
+            Le tue abilità si sono affinate. Nuove sfide e trofei ti attendono nella bacheca!
+          </p>
+
+          <button class="confirm-btn" (click)="ui.closeLevelUp()">
+            RICEVUTO
+          </button>
+        </div>
+      </div>
+    }

@@ -1,0 +1,45 @@
+.quest-form { display: flex; flex-direction: column; gap: 15px; }
+    
+    .form-grid { 
+      display: grid; 
+      grid-template-columns: 1fr 150px; 
+      gap: 10px; 
+    }
+
+    input, select, textarea {
+      width: 100%;
+      background: #0b0b0d;
+      border: 1px solid #333;
+      color: #fff;
+      padding: 12px;
+      border-radius: 8px;
+      outline: none;
+      transition: border-color 0.3s;
+      &:focus { border-color: #ff922b; }
+    }
+
+    .form-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-top: 10px;
+    }
+
+    .reward-preview {
+      font-size: 0.85rem;
+      color: #888;
+      span { color: #00ff87; font-weight: bold; }
+    }
+
+    .submit-btn {
+      background: #ff922b;
+      color: #000;
+      border: none;
+      padding: 10px 25px;
+      border-radius: 6px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: 0.3s;
+      &:hover:not(:disabled) { transform: translateY(-2px); box-shadow: 0 5px 15px rgba(255, 146, 43, 0.3); }
+      &:disabled { opacity: 0.5; cursor: not-allowed; }
+    }
